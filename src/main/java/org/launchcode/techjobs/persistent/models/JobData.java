@@ -1,12 +1,14 @@
 package org.launchcode.techjobs.persistent.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // This is a change made in sandbox.
 
 /**
  * Created by LaunchCode
  */
+
 public class JobData {
 
 
@@ -51,8 +53,11 @@ public class JobData {
             theValue = job.getName();
         } else if (fieldName.equals("employer")){
             theValue = job.getEmployer().toString();
+        } else if (fieldName.equals("skills")) {
+            List<Skill> skillList = job.getSkills();
+            theValue = (skillList != null) ? skillList.toString() : "";
         } else {
-            theValue = job.getSkills().toString();
+            theValue = "";
         }
 
         return theValue;
